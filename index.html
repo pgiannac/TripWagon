@@ -19,58 +19,65 @@
 
 </head>
 <body>
-    <!-- SEARCHBAR -->
-    <div class="container mt-5 bg-primary">
-    <section class="row searchbar pt-3 px-3">
-        <div class="input-group mb-3">
-            <div class="input-group-prepend">
-            <span class="input-group-text px-2"><i class="fas fa-search"></i>
-            </span>
-            </div>
-            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
-            placeholder="Champs Elyseés,Paris">
-            <div class="input-group-append">
-            <button class="input-group-text bg-info text-white px-5">Search</button>
-            </div>
-        </div>
-    </section>
-    </div>
-    <!-- BOOKING -->
-    <div class="container mt-2">
-    <section class="row booking border">
-        <div class="col-4" id="checkIn">Check-in</div>
-        <div class="col-4" id="checkOut">Check-out</div>
-        <div class="col-4" id="roomType">Room Types</div>
-    </section>
-    </div>
-    <!-- FEATURES -->
-    <div class="container mt-1">
-    <section class="row features border">
-        <div class="col-4 border" id="priceRange" >Price Range</div>
-        <div class="col-2 border" id="propType">Properties</div>
-        <div class="col-2 border" id="guest">Guest</div>
-        <div class="col-4 border" id="location">Location</div>
-    </section>
-    </div>
-    <!-- MAPS -->
     <div class="container mt-5">
-    <section class="row map border">
-        <div class="col border" id="map">Map</div>
-        <div class="col border" id="sortBy">Sort By</div>
-    </section>
-    </div>
-    <!-- HOTELS -->
-    <div class="container mt-5">
-    <section class="row hotels border">
-        <!-- HOTEL -->
-        <div class="col-12 row hotel m-0 p-0">
-            <div class="col-3 border" id="photo">PHOTO</div>
-            <div class="col-4 border" id="desc">DESC</div>
-            <div class="col-2 border" id="deals">DEALS</div>
-            <div class="col-3 border" id="details">VIEW DETAILS</div>
-        </div>
-    </section>
-    </div>
+        <!-- SEARCHBAR -->
+        <section class="row searchbar pt-3">
+            <div class="col">
+                <div class="input-group mb-3">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text bg-white border-0">
+                            <i class="fas fa-search text-black-50"></i>
+                        </span>
+                    </div>
+                    <!-- REPLACE WITH <datalist> -->
+                    <input list="cities-list" class="form-control border-0" id="cities" 
+                    name="cities" aria-label="Location" placeholder="What are you looking for?"/>
+                    <datalist id="cities-list">
+                        <option value="Paris"></option>
+                        <option value="Toulouse"></option>
+                        <option value="Marseille"></option>
+                    </datalist>
+                    <div class="input-group-append">
+                        <button class="bg-info text-white px-5 border-0">Search</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- BOOKING -->
+        <section class="row booking border">
+            <div class="col border" id="checkin">
+                Check-in
+            </div>
+            <div class="col border" id="checkout">
+                Check-out
+            </div>
+            <div class="col border">
+                Room Types
+            </div>
+        </section>
+        <!-- FEATURES -->
+        <section class="row features border">
+            <div class="col-4 border">Price Range</div>
+            <div class="col-2 border">Prop Type</div>
+            <div class="col-2 border">Guest</div>
+            <div class="col-4 border">Location</div>
+        </section>
+        <!-- MAP -->
+        <section class="row map border">
+            <div class="col border">MAP</div>
+            <div class="col border">SORT BY</div>
+        </section>
+        <!-- HOTELS -->
+        <section class="row hotels border">
+            <!-- HOTEL -->
+            <div class="col-12 row hotel border m-0 p-0">
+                <div class="col-3 border">PHOTO</div>
+                <div class="col-4 border">DESC</div>
+                <div class="col-2 border">DEALS</div>
+                <div class="col-3 border">VIEW DEALS</div>
+            </div>
+        </section>
+</div>
     <script src="/js/app.js"></script>
-    </body>
+</body>
 </html>
