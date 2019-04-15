@@ -31,7 +31,7 @@
                     </div>
                     <!-- REPLACE WITH <datalist> -->
                     <input list="cities-list" class="form-control border-0" id="cities" 
-                    name="cities" aria-label="Location" placeholder="What are you looking for?"/>
+                    name="cities" aria-label="Location" placeholder="Which place are you looking for?"/>
                     <datalist id="cities-list">
                         <option value="Paris"></option>
                         <option value="Toulouse"></option>
@@ -44,14 +44,25 @@
             </div>
         </section>
         <!-- BOOKING -->
-        <section class="row booking border">
-            <div class="col border" id="checkin">
+        <section class="row booking border-1">
+                <div class="container mt-0">
+                        <!-- SEARCHBAR -->
+                        <section class="row searchbar">
+                            <div class="col">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text bg-white border-0">
+                                            <i class="fas fa-search text-black-50"></i>
+                                        </span>
+                                    </div>
+            <div class="col pt-3 py-3" id="checkin">
                 Check-in
             </div>
-            <div class="col border" id="checkout">
+            
+            <div class="col pt-3 py-3" id="checkout">
                 Check-out
             </div>
-            <div class="col border">
+            <div class="col pt-3 py-3">
                 Room Types
             </div>
         </section>
