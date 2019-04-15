@@ -5,8 +5,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Assignment 6</title>
+
+    <!-- jQuery -->
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" 
+    crossorigin="anonymous"></script>
+    <!-- Bootstrap 4  -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <!-- OpenLayers -->
+    <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
+    <link rel="stylesheet" href="/css/index.css">
+
 </head>
 <body>
-    
-</body>
+    <!-- SEARCHBAR -->
+    <div class="container mt-5 bg-primary">
+    <section class="row searchbar pt-3 px-3">
+        <div class="input-group mb-3">
+            <div class="input-group-prepend">
+            <span class="input-group-text px-2"><i class="fas fa-search"></i>
+            </span>
+            </div>
+            <input type="text" class="form-control" aria-label="Amount (to the nearest dollar)"
+            placeholder="Champs Elysees,Paris">
+            <div class="input-group-append">
+            <button class="input-group-text bg-info text-white px-5">Search</button>
+            </div>
+        </div>
+    </section>
+    </div>
+    <!-- BOOKING -->
+    <div class="container mt-2">
+    <section class="row booking border">
+        <div class="col-4" id="checkIn">Check-in</div>
+        <div class="col-4" id="checkOut">Check-out</div>
+        <div class="col-4" id="roomType">Room Types</div>
+    </section>
+    </div>
+    <!-- FEATURES -->
+    <div class="container mt-1">
+    <section class="row features border">
+        <div class="col-4 border" id="priceRange" >Price Range</div>
+        <div class="col-2 border" id="propType">Properties</div>
+        <div class="col-2 border" id="guest">Guest</div>
+        <div class="col-4 border" id="location">Location</div>
+    </section>
+    </div>
+    <!-- MAPS -->
+    <div class="container mt-5">
+    <section class="row map border">
+        <div class="col border" id="map">Map</div>
+        <div class="col border" id="sortBy">Sort By</div>
+    </section>
+    </div>
+    <!-- HOTELS -->
+    <div class="container mt-5">
+    <section class="row hotels border">
+        <!-- HOTEL -->
+        <div class="col-12 row hotel m-0 p-0">
+            <div class="col-3 border" id="photo">PHOTO</div>
+            <div class="col-4 border" id="desc">DESC</div>
+            <div class="col-2 border" id="deals">DEALS</div>
+            <div class="col-3 border" id="details">VIEW DETAILS</div>
+        </div>
+    </section>
+    </div>
+    <script src="/js/app.js"></script>
+    </body>
 </html>
