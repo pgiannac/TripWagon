@@ -10,15 +10,10 @@ function init($) {
     }
 
     function jsonHandler(data) {
-
-        let entries = data[1].entries;
-        // console.log( entries ); 
-        let cities = entries.map(getCity); // Array[ { HOTEL } x 4 ]
-
         function getCity(hotel) { // 4 times: 1 { ... }, 2 { ... }, 3 { ... }, 4 { ... }
             return hotel.city;
         }
-
+        
         function removeDups(names) {
             let unique = {
                 Paris: true,
@@ -30,7 +25,9 @@ function init($) {
             });
             return Object.keys(unique);
         }
-
+        // console.log( entries ); 
+        let entries = data[1].entries;
+        let cities = entries.map(getCity); // Array[ { HOTEL } x 4 ]
         let uniqueCities = removeDups(cities);
 
         console.log(uniqueCities);
