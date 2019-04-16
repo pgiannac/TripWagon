@@ -41,6 +41,18 @@ function init( $ ){
         createOptions( uniqueCities );
 
     }
+     // HANDLE CITY INPUT 
+
+     let citiesInput = document.querySelector( "#cities" );
+    
+     citiesInput.addEventListener( "keydown", handleCityInput );
+ 
+     function handleCityInput( e ){
+         if ( e.keyCode === 13 ){
+             let selectedCity = this.value; // === citiesInput.value === e.target
+             console.log( "Selected City:", selectedCity );
+         }
+     } 
 
     // document.createElement( TAG )
     // ELEMENT.innerHTML
