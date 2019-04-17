@@ -1,86 +1,135 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Assignment 6</title>
+    <title>Tripwagon Hotel Booking</title>
 
     <!-- jQuery -->
-    <script src="https://code.jquery.com/jquery-3.4.0.min.js" integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" 
-    crossorigin="anonymous"></script>
-    <!-- Bootstrap 4  -->
-    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.0.min.js"
+        integrity="sha256-BJeo0qm959uMBGb65z40ejJYGSgR7REI4+CW1fNKwOg=" crossorigin="anonymous"></script>
+
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
     <!-- FontAwesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+        integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+
     <!-- OpenLayers -->
     <script src="https://cdn.rawgit.com/openlayers/openlayers.github.io/master/en/v5.3.0/build/ol.js"></script>
-    <link rel="stylesheet" href="/css/index.css">
 
+    <link rel="stylesheet" href="css/index.css">
 </head>
+
 <body>
     <div class="container mt-5">
+
         <!-- SEARCHBAR -->
         <section class="row searchbar pt-3">
+
             <div class="col">
+
                 <div class="input-group mb-3">
                     <div class="input-group-prepend">
                         <span class="input-group-text bg-white border-0">
                             <i class="fas fa-search text-black-50"></i>
                         </span>
                     </div>
+
                     <!-- REPLACE WITH <datalist> -->
-                    <input list="cities-list" class="form-control border-0" id="cities" 
-                     name="cities" aria-label="Location" placeholder="Which place are you looking for?"/>
+                    <input list="cities-list" class="form-control border-0" id="cities" name="cities"
+                        aria-label="Location" />
+
                     <datalist id="cities-list">
                         <!-- DYNAMIC CONTENT -->
                     </datalist>
+
                     <div class="input-group-append">
                         <button class="bg-info text-white px-5 border-0">Search</button>
                     </div>
                 </div>
+
             </div>
+
         </section>
+
         <!-- BOOKING -->
-        <section class="row booking border-1">
-                <div class="col-sm-4 pt-2" style="height:130px;">
-                        <div class="form-group">
-                        </div>
-                    </div>
-            <div class="col pt-3 py-3" id="checkin">
+        <section class="row booking border">
+
+            <div class="col border" id="checkin">
                 Check-in
             </div>
-            
-            <div class="col pt-3 py-3" id="checkout">
+
+            <div class="col border" id="checkout">
                 Check-out
             </div>
-            <div class="col pt-3 py-3">
+
+            <div class="col border">
                 Room Types
             </div>
+
         </section>
+
         <!-- FEATURES -->
         <section class="row features border">
+
             <div class="col-4 border">Price Range</div>
             <div class="col-2 border">Prop Type</div>
             <div class="col-2 border">Guest</div>
             <div class="col-4 border">Location</div>
+
         </section>
+
         <!-- MAP -->
         <section class="row map border">
             <div class="col border">MAP</div>
             <div class="col border">SORT BY</div>
         </section>
+
         <!-- HOTELS -->
-        <section class="row hotels border">
-            <!-- HOTEL -->
-            <div class="col-12 row hotel border m-0 p-0">
-                <div class="col-3 border">PHOTO</div>
-                <div class="col-4 border">DESC</div>
-                <div class="col-2 border">DEALS</div>
-                <div class="col-3 border">VIEW DEALS</div>
-            </div>
+        <section class="row hotels">
         </section>
-</div>
-    <script src="/js/app.js"></script>
+
+        <!-- HOTEL -->
+        <div id="template" class="hidden col-12 row hotel border m-0 p-0">
+
+            <!-- HOTEL PHOTO -->
+            <div class="col-3 border px-0">
+                <i class="fas fa-heart m-3 position-absolute text-black-50"></i>
+                <img class="img-fluid hotel-photo"
+                    src="http://comerciodearrecife.com/wp-content/uploads/hotel-prueba-1.jpg" alt="">
+            </div>
+
+            <!-- HOTEL DESCRIPTION  -->
+            <div class="col-4 border py-4">
+                <h5>Hotel Lancaster</h5>
+                <p>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-warning"></i>
+                    <i class="fas fa-star text-muted"></i>
+                    <i class="fas fa-star text-muted"></i> Hotel
+                </p>
+                <p>Paris, 0.2 miles to Champs Elysees</p>
+                <p><span class="bg-success text-white p-1 rounded">8.8</span> <strong>Excellent</strong> (1736 reviews)
+                </p>
+                <p>Excellent location (9.2/10)</p>
+            </div>
+
+            <!-- DEALS  -->
+            <div class="col-2 border">DEALS</div>
+
+            <!-- VIEW DEALS  -->
+            <div class="col-3 border">VIEW DEALS</div>
+
+        </div>
+
+    </div>
+
+    <script src="js/app.js"></script>
 </body>
 </html>

@@ -8,8 +8,9 @@ function init( $ ){
         url: "../data.json",
         success: jsonHandler
     }
+    let entries;
 
-    function removeDups(names) {
+    function removeDups( names ) {
         let unique = {};
         names.forEach(function(i) {
           if(!unique[i]) { unique[i] = true; }
@@ -34,25 +35,64 @@ function init( $ ){
             return hotel.city;
         }
 
-        let entries = data[1].entries;
+        entries = data[1].entries;
         let cities = entries.map( getCity ); 
         let uniqueCities = removeDups( cities ); 
         uniqueCities.sort();
         createOptions( uniqueCities );
 
     }
-     // HANDLE CITY INPUT 
 
-     let citiesInput = document.querySelector( "#cities" );
+    function getHotelsFromSelected( selectedCity ){
+
+        function filterHotels( hotel ){
+            return hotel.city.toLowerCase() === selectedCity.toLowerCase().trim();
+        }
+
+        let availableHotels = entries.filter( filterHotels );
+
+        return availableHotels;
+
+    }
+
+    function handleCityInput( e ){
+        if ( e.keyCode === 13 ){
+            let selectedCity = this.value;
+            let foundHotels = getHotelsFromSelected( selectedCity );
+            displaySelectedHotels( foundHotels );
+        }
+    }
+
+    function displaySelectedHotels( foundHotels ){
+
+        console.log( foundHotels ); // [ { HOTEL }, { HOTEL }, ... ]
+        // 1) Loop over found hotels' list
+        let hotelsSection = document.querySelector( ".hotels" );
+        hotelsSection.innerHTML = "";
+
+        foundHotels.map( displayHotel );
+
+        function displayHotel( hotel, idx ){
+
+            // 1.1) For very HOTEL object -> get Template -> clone -> update content -> append to .hotels
+            let template = document.querySelector( "#template" );
+            // console.log( template ); // HTMLElement Object
+            let clone = template.cloneNode( true );
+            let img = clone.querySelector( ".hotel-photo" );
+            img.setAttribute( "src", hotel.thumbnail );
+
+            clone.classList.remove( "hidden" );
+            hotelsSection.appendChild( clone );
+
+        }
+
+    }
+
+    // HANDLE CITY INPUT 
+    let citiesInput = document.querySelector( "#cities" );
     
-     citiesInput.addEventListener( "keydown", handleCityInput );
- 
-     function handleCityInput( e ){
-         if ( e.keyCode === 13 ){
-             let selectedCity = this.value; // === citiesInput.value === e.target
-             console.log( "Selected City:", selectedCity );
-         }
-     } 
+    citiesInput.addEventListener( "keydown", handleCityInput );
+
 
     // document.createElement( TAG )
     // ELEMENT.innerHTML
@@ -63,18 +103,3 @@ $.ajax(options);
 
 // Alternative, no global vars at all:
 // jQuery(function init(){ ... });
-
-// dates js
-
-// $(function () {
-//     $('#datetimepicker6').datetimepicker();
-//     $('#datetimepicker7').datetimepicker({
-//         useCurrent: false //Important! See issue #1075
-//     });
-//     $("#datetimepicker6").on("dp.change", function (e) {
-//         $('#datetimepicker7').data("DateTimePicker").minDate(e.date);
-//     });
-//     $("#datetimepicker7").on("dp.change", function (e) {
-//         $('#datetimepicker6').data("DateTimePicker").maxDate(e.date);
-//     });
-// });
